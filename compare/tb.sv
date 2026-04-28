@@ -39,7 +39,8 @@ module top:
     if (base_packet_h_1.compare(base_packet_h_2)) begin
       $display("equal");
     end else begin
-      $display("not equal"); 
+      $display("not equal");
     end
   end
 endmodule
+

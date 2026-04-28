@@ -9,9 +9,9 @@ class packet extends uvm_object;
 
   `uvm_object_utils_begin(packet)
 
-  `uvm_field_int(data, UVM_ALL_ON)
-  `uvm_field_int(addr, UVM_NOCOPY)
-  `uvm_field_int(enable, UVM_NOCOMPARE)
+    `uvm_field_int(data, UVM_ALL_ON)
+    `uvm_field_int(addr, UVM_NOCOPY)
+    `uvm_field_int(enable, UVM_NOCOMPARE)
 
   `uvm_object_utils_end
 
@@ -20,7 +20,8 @@ class packet extends uvm_object;
   endfunction
 
   function void display(string handle);
-    $display("%s the value of data is %d and value of addr is %d and the value of enable is %d", handle, data, addr, enable);
+    $display("%s the value of data is %d and value of addr is %d and the value of enable is %d",
+             handle, data, addr, enable);
   endfunction
 
 endclass

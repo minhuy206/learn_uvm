@@ -23,7 +23,8 @@ class driver extends uvm_driver;
   function void end_of_elaboration_phase(uvm_phase phase);
     super.end_of_elaboration_phase(phase);
 
-    `uvm_info("END_OF_ELABORATION_PHASE", "END OF ELABORATION PHASE CALLED FROM DRIVER COMPONENT", UVM_LOW)
+    `uvm_info("END_OF_ELABORATION_PHASE", "END OF ELABORATION PHASE CALLED FROM DRIVER COMPONENT",
+              UVM_LOW)
   endfunction
 
   task run_phase(uvm_phase phase);
@@ -65,9 +66,10 @@ class monitor extends uvm_monitor;
   function void end_of_elaboration_phase(uvm_phase phase);
     super.end_of_elaboration_phase(phase);
 
-    `uvm_info("END_OF_ELABORATION_PHASE", "END OF ELABORATION PHASE CALLED FROM MONITOR COMPONENT", UVM_LOW)
+    `uvm_info("END_OF_ELABORATION_PHASE", "END OF ELABORATION PHASE CALLED FROM MONITOR COMPONENT",
+              UVM_LOW)
   endfunction
-  
+
   task run_phase(uvm_phase phase);
     super.run_phase(phase);
 
@@ -88,7 +90,7 @@ endclass
 class agent extends uvm_agent;
   `uvm_component_utils(agent)
 
-  driver driver_h;
+  driver  driver_h;
   monitor monitor_h;
   function new(string name = "agent", uvm_component parent);
     super.new(name, parent);
@@ -99,7 +101,7 @@ class agent extends uvm_agent;
 
     `uvm_info("BUILD_PHASE", "BUILD PHASE CALLED FROM AGENT COMPONENT", UVM_LOW);
 
-    driver_h = driver::type_id::create("driver_h", this);
+    driver_h  = driver::type_id::create("driver_h", this);
     monitor_h = monitor::type_id::create("monitor_h", this);
   endfunction
 
@@ -112,7 +114,8 @@ class agent extends uvm_agent;
   function void end_of_elaboration_phase(uvm_phase phase);
     super.end_of_elaboration_phase(phase);
 
-    `uvm_info("END_OF_ELABORATION_PHASE", "END OF ELABORATION PHASE CALLED FROM AGENT COMPONENT", UVM_LOW)
+    `uvm_info("END_OF_ELABORATION_PHASE", "END OF ELABORATION PHASE CALLED FROM AGENT COMPONENT",
+              UVM_LOW)
   endfunction
 
   task run_phase(uvm_phase phase);
@@ -147,7 +150,8 @@ class env extends uvm_env;
   function void end_of_elaboration_phase(uvm_phase phase);
     super.end_of_elaboration_phase(phase);
 
-    `uvm_info("END_OF_ELABORATION_PHASE", "END OF ELABORATION PHASE CALLED FROM ENV COMPONENT", UVM_LOW)
+    `uvm_info("END_OF_ELABORATION_PHASE", "END OF ELABORATION PHASE CALLED FROM ENV COMPONENT",
+              UVM_LOW)
   endfunction
 
   task run_phase(uvm_phase phase);
@@ -182,13 +186,14 @@ class test extends uvm_test;
   function void end_of_elaboration_phase(uvm_phase phase);
     super.end_of_elaboration_phase(phase);
 
-    `uvm_info("END_OF_ELABORATION_PHASE", "END OF ELABORATION PHASE CALLED FROM TEST COMPONENT", UVM_LOW)
+    `uvm_info("END_OF_ELABORATION_PHASE", "END OF ELABORATION PHASE CALLED FROM TEST COMPONENT",
+              UVM_LOW)
   endfunction
 
   task run_phase(uvm_phase phase);
     super.run_phase(phase);
 
-    `uvm_info("RUN PHASE", "RUN PHASE CALLED FROM TEST COMPONENT", UVM_LOW);
+    `uvm_info("RUN PHASE", "RUN PHASE CALLED FROM TEST COMPONENT", UVM_LOW)
   endtask
 endclass
 
